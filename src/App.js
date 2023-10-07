@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import CustomHeader from "./components/CustomHeader";
+import { Grid, Text, rem } from "@mantine/core";
+import CodeEditor from "./components/CodeEditor";
+import CustomFooter from "./components/CustomFooter";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <Grid gutter={0} style={{ minHeight: '100vh', position: 'relative', overflow: 'auto' }}>
+        <Grid.Col span={12}>
+          <CodeEditor />
+        </Grid.Col>
+        <Grid.Col
+          span={12}
+          style={{ background: '#FFFFFF', position: 'absolute', width: '100%', borderTop: '1px solid #EEEEEE', bottom: 0 }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <CustomFooter />
+        </Grid.Col>
+      </Grid >
+    </>
   );
 }
 
 export default App;
+
+
