@@ -9,7 +9,7 @@ const CustomFooter = () => {
           <Grid.Col span={12} style={{ borderBottom: '1px solid #EEEEEE' }}>
             <Group style={{ padding: '0 10px' }}>
               <Text fw={500} size="14px">
-                © {currentYear} notblessy. All rights reserved.
+                © {currentYear} keep_going. All rights reserved.
               </Text>
             </Group>
           </Grid.Col>

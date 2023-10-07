@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Group, Text } from "@mantine/core";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 import { Editor } from "@monaco-editor/react";
 import { IconAlertCircle, IconArrowsMinimize, IconBraces, IconCode, IconTrash } from "@tabler/icons-react";

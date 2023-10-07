@@ -1,6 +1,5 @@
 import React from "react";
-import CustomHeader from "./components/CustomHeader";
-import { Grid, Text, rem } from "@mantine/core";
+import { Grid } from "@mantine/core";
 import CodeEditor from "./components/CodeEditor";
 import CustomFooter from "./components/CustomFooter";
 
