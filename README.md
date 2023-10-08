@@ -1,4 +1,4 @@
-# Getting Started with Tidyapp JSON PLAYGROUND
+# Getting Started with keep_going JSON PLAYGROUND
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
