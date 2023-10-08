@@ -1,8 +1,8 @@
-import { Avatar, Box, Button, Grid, Group, Image, Text } from "@mantine/core";
+import { Box, Button, Grid, Group, Image, Text } from "@mantine/core";
 import React, { useRef, useState } from "react";
 
 import { Editor } from "@monaco-editor/react";
-import { IconAlertCircle, IconArrowsMinimize, IconBraces, IconCode, IconTrash } from "@tabler/icons-react";
+import { IconAlertCircle, IconArrowsMinimize, IconBraces, IconTrash } from "@tabler/icons-react";
 
 const CodeEditor = () => {
   const [value, setValue] = useState();
