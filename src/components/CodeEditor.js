@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Group, Text } from "@mantine/core";
+import { Avatar, Box, Button, Grid, Group, Image, Text } from "@mantine/core";
 import React, { useRef, useState } from "react";
 
 import { Editor } from "@monaco-editor/react";
@@ -139,7 +139,13 @@ const CodeEditor = () => {
         <Grid>
           <Grid.Col span={12} style={{ borderBottom: '1px solid #EEEEEE' }}>
             <Group style={{ padding: '0 10px' }}>
-              <IconCode size={40} />
+              <Image
+                radius="md"
+                h={25}
+                w="auto"
+                fit="contain"
+                src="/json-web.png"
+              />
               <Text fw={600}>JSON Playground</Text>
               <Group style={{ padding: '0 10px' }} justify="flex-end">
                 <Button
@@ -185,7 +191,7 @@ const CodeEditor = () => {
           <Text fw={400} size="14px" style={{ color: errColor.color }}>{`Problems Found (${value ? errorCount : 0})`}</Text>
         </Group>
       </Box>
-      <Box style={{ background: '#FFFFFF', width: '80%', padding: '5px 10px' }}>
+      <Box style={{ background: '#FFFFFF', width: '80%', padding: '5px 10px 60px' }}>
         <Text style={{ padding: '10px 10px 5px' }} fw={500}>What is JSON Playground?</Text>
         <Text style={{ padding: '5px 10px' }} size="sm">Introducing the JSON Playground, a versatile and user-friendly online tool designed to simplify your JSON editing experience. Whether you're a seasoned developer or a newcomer to JSON, our playground provides a seamless environment for error detection, automatic formatting, and a clean, intuitive design.</Text>
         <Text style={{ padding: '5px 10px' }} size="sm">JSON Playground is your go-to online JSON editing tool that combines error detection, automatic formatting, and a user-friendly design into one seamless experience. Whether you're debugging JSON data or simply crafting new structures, our playground streamlines the process, making your JSON-related tasks more efficient and enjoyable. Try it today and witness the difference for yourself!</Text>
