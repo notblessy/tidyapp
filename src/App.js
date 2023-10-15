@@ -1,5 +1,8 @@
 import React from "react";
 import { Grid } from "@mantine/core";
+import { Analytics } from '@vercel/analytics/react';
+
+
 import CodeEditor from "./components/CodeEditor";
 import CustomFooter from "./components/CustomFooter";
 
@@ -15,6 +18,7 @@ function App() {
           style={{ background: '#FFFFFF', position: 'absolute', width: '100%', borderTop: '1px solid #EEEEEE', bottom: 0 }}
         >
           <CustomFooter />
+          <Analytics />
         </Grid.Col>
       </Grid >
     </>
