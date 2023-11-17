@@ -1,11 +1,13 @@
-import { Box, Button, Grid, Group, Image, Text } from "@mantine/core";
+import { Box, Button, Grid, Group, Image, Text, UnstyledButton } from "@mantine/core";
 import React, { useRef, useState } from "react";
 
 import { Editor } from "@monaco-editor/react";
-import { IconAlertCircle, IconArrowsMinimize, IconBraces, IconTrash } from "@tabler/icons-react";
+import { IconAlertCircle, IconArrowDown, IconArrowsMinimize, IconBraces, IconChevronDown, IconChevronUp, IconTrash } from "@tabler/icons-react";
 
 const CodeEditor = () => {
   const [value, setValue] = useState();
+  const [showDesc, setHideDesc] = useState(true);
+
 
   const [errorCount, setErrorCount] = useState(0);
   const [err, setError] = useState([]);
@@ -175,27 +177,40 @@ const CodeEditor = () => {
           </Grid.Col>
         </Grid>
       </Box>
-      <Box style={{ borderBottom: '1px solid #EEEEEE', width: '100%', height: "350px" }}>
+      <Box style={{ borderBottom: '1px solid #EEEEEE', width: '100%', height: showDesc ? "350px" : "90vh" }}>
         <Editor
           style={{ background: '#F00' }}
           value={value}
           language="json"
           options={options}
           onMount={editorDidMount}
-          onChange={(value, e) => setValue(value)}
+          onChange={(value, e) => { setValue(value) }}
         />
       </Box>
-      <Box style={{ background: errColor.background, borderBottom: '1px solid #EEEEEE', }}>
-        <Group style={{ padding: '15px 10px' }}>
-          <IconAlertCircle size="20px" style={{ color: errColor.color }} />
-          <Text fw={400} size="14px" style={{ color: errColor.color }}>{`Problems Found (${value ? errorCount : 0})`}</Text>
-        </Group>
+      <Box style={{ background: errColor.background, borderBottom: '1px solid #EEEEEE', width: '100%', position: showDesc ? 'relative' : 'absolute', bottom: showDesc ? 0 : 55 }}>
+        <UnstyledButton style={{ width: '100%' }} onClick={() => setHideDesc(!showDesc)}>
+          <Group style={{ padding: '15px 10px' }}>
+            <IconAlertCircle size="20px" style={{ color: errColor.color }} />
+            <Text fw={400} size="14px" style={{ color: errColor.color }}>{`Problems Found (${value ? errorCount : 0})`}</Text>
+            {
+              showDesc ?
+                <IconChevronDown size="20px" />
+                :
+                <IconChevronUp size="20px" />
+            }
+          </Group>
+        </UnstyledButton>
       </Box>
-      <Box style={{ background: '#FFFFFF', width: '80%', padding: '5px 10px 60px' }}>
-        <Text style={{ padding: '10px 10px 5px' }} fw={500}>What is JSON Playground?</Text>
-        <Text style={{ padding: '5px 10px' }} size="sm">Introducing the JSON Playground, a versatile and user-friendly online tool designed to simplify your JSON editing experience. Whether you're a seasoned developer or a newcomer to JSON, our playground provides a seamless environment for error detection, automatic formatting, and a clean, intuitive design.</Text>
-        <Text style={{ padding: '5px 10px' }} size="sm">JSON Playground is your go-to online JSON editing tool that combines error detection, automatic formatting, and a user-friendly design into one seamless experience. Whether you're debugging JSON data or simply crafting new structures, our playground streamlines the process, making your JSON-related tasks more efficient and enjoyable. Try it today and witness the difference for yourself!</Text>
-      </Box>
+      {
+        showDesc ?
+          <Box style={{ background: '#FFFFFF', width: '80%', padding: '5px 10px 60px' }}>
+            <Text style={{ padding: '10px 10px 5px' }} fw={500}>What is JSON Playground?</Text>
+            <Text style={{ padding: '5px 10px' }} size="sm">Introducing the JSON Playground, a versatile and user-friendly online tool designed to simplify your JSON editing experience. Whether you're a seasoned developer or a newcomer to JSON, our playground provides a seamless environment for error detection, automatic formatting, and a clean, intuitive design.</Text>
+            <Text style={{ padding: '5px 10px' }} size="sm">JSON Playground is your go-to online JSON editing tool that combines error detection, automatic formatting, and a user-friendly design into one seamless experience. Whether you're debugging JSON data or simply crafting new structures, our playground streamlines the process, making your JSON-related tasks more efficient and enjoyable. Try it today and witness the difference for yourself!</Text>
+          </Box>
+          :
+          null
+      }
     </>
   );
 };
