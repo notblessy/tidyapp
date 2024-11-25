@@ -1,30 +1,16 @@
 import React from "react";
-import { Grid } from "@mantine/core";
-import { Analytics } from '@vercel/analytics/react';
+import { Route, Routes } from "react-router-dom";
 
-
-import CodeEditor from "./components/CodeEditor";
-import CustomFooter from "./components/CustomFooter";
+import Home from "./pages";
+import JSONBDetail from "./pages/jsonb_shared";
 
 function App() {
   return (
-    <>
-      <Grid gutter={0} style={{ minHeight: '100vh', position: 'relative', overflow: 'auto' }}>
-        <Grid.Col span={12}>
-          <CodeEditor />
-        </Grid.Col>
-        <Grid.Col
-          span={12}
-          style={{ background: '#FFFFFF', position: 'absolute', width: '100%', borderTop: '1px solid #EEEEEE', bottom: 0 }}
-        >
-          <CustomFooter />
-          <Analytics />
-        </Grid.Col>
-      </Grid >
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/:id" element={<JSONBDetail />} />
+    </Routes>
   );
 }
 
 export default App;
-
-
