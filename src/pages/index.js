@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Grid } from "@mantine/core";
-import { Analytics } from "@vercel/analytics/react";
 
 import CodeEditor from "../components/CodeEditor";
 import CustomFooter from "../components/CustomFooter";
@@ -53,7 +52,6 @@ function Home() {
           }}
         >
           <CustomFooter />
-          <Analytics />
         </Grid.Col>
       </Grid>
     </>
