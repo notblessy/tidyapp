@@ -229,7 +229,9 @@ const CodeEditor = ({ id, initialValue }) => {
                 <Button
                   loading={loading}
                   leftSection={<IconShare2 size={16} />}
-                  onClick={() => onAdd({ id: id, data: value })}
+                  onClick={() => {
+                    onAdd({ id: id, data: value });
+                  }}
                   variant="default"
                   radius={0}
                 >

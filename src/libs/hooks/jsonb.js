@@ -32,6 +32,16 @@ export const useJSON = (id) => {
     async (data) => {
       setLoading(true);
       try {
+        if (!data.data) {
+          notifications.show({
+            title: "Share Failed",
+            message: "No data to share",
+            color: "red",
+          });
+
+          return;
+        }
+
         const { data: res } = await api.post("api", data);
 
         if (res?.data?.id) {
