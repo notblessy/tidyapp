@@ -3,6 +3,7 @@ import useSWR, { mutate } from "swr";
 
 import api from "../utils/api";
 import { notifications } from "@mantine/notifications";
+import { useNavigate } from "react-router-dom";
 
 function copyToClipboard(data) {
   navigator.clipboard
@@ -23,6 +24,8 @@ function copyToClipboard(data) {
 }
 
 export const useJSON = (id) => {
+  const navigate = useNavigate();
+
   const [loading, setLoading] = useState(false);
 
   const pathKey = `api/${id}`;
@@ -48,6 +51,7 @@ export const useJSON = (id) => {
           mutate(pathKey);
 
           copyToClipboard(`${window.location.origin}/${res.data.id}`);
+          navigate(`/${res.data.id}`);
         }
       } catch (error) {
         notifications.show({
