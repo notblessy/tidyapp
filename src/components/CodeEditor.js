@@ -178,6 +178,19 @@ const CodeEditor = ({ id, initialValue }) => {
     if (showDesc) {
       setHideDesc(showDesc === "true");
     }
+
+    const handleKeyDown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "s") {
+        e.preventDefault();
+        onAdd({ id: id, data: value });
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [errorCount, initialValue]);
 
   return (
