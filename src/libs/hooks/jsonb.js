@@ -63,7 +63,7 @@ export const useJSON = (id) => {
         setLoading(false);
       }
     },
-    [pathKey]
+    [navigate, pathKey]
   );
 
   return {

@@ -28,7 +28,6 @@ const CodeEditor = ({ id, initialValue }) => {
   const [showDesc, setHideDesc] = useState(true);
 
   const [errorCount, setErrorCount] = useState(0);
-  const [err, setError] = useState([]);
 
   const editorRef = useRef(null);
 
@@ -118,7 +117,6 @@ const CodeEditor = ({ id, initialValue }) => {
         (marker) => marker.severity === monaco.MarkerSeverity.Error
       );
 
-      setError(errorMarkers);
       setErrorCount(errorMarkers.length);
 
       localStorage.setItem("json", editor.getValue());
@@ -164,10 +162,6 @@ const CodeEditor = ({ id, initialValue }) => {
         };
 
   useEffect(() => {
-    if (errorCount === 0) {
-      setError([]);
-    }
-
     if (initialValue) {
       if (!value) {
         setValue(initialValue);
@@ -191,7 +185,7 @@ const CodeEditor = ({ id, initialValue }) => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [errorCount, initialValue]);
+  }, [errorCount, id, initialValue, onAdd, value]);
 
   return (
     <>
