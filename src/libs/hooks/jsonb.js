@@ -63,6 +63,7 @@ export const useJSON = (id) => {
         setLoading(false);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [pathKey]
   );
 
