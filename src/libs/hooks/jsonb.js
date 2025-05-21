@@ -29,7 +29,7 @@ export const useJSON = (id) => {
   const [loading, setLoading] = useState(false);
 
   const pathKey = `api/${id}`;
-  const { data } = useSWR(pathKey);
+  const { data } = useSWR(id ? pathKey : null);
 
   const onAdd = useCallback(
     async (data) => {
